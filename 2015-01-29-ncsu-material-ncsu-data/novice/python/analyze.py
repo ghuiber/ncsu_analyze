@@ -4,7 +4,6 @@ from matplotlib import pyplot as plt
 
 def analyze(filename):
     data = np.loadtxt(fname=filename, delimiter=',')
-    git statu
     plt.figure(figsize=(10.0, 3.0))
     
     plt.subplot(1, 3, 1)
