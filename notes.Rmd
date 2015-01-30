@@ -5,6 +5,13 @@ date: "January 29, 2015"
 output: html_document
 ---
 
+## Day 2
+
+Say I have MYFILE in Git, and I make an edit to it. Then I do
+`git add [MYFILE]`
+`git diff --staged` -- this will check the changes you made to the file before you commit it.
+`git diff HEAD~1` -- checks changes made between last commit and previous.
+
 ## Day 1
 
 `unzip -t yourzipfile.zip` -- tells you what's in the archive, without unzipping yet.
