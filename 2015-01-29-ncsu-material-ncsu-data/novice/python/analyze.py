@@ -20,3 +20,4 @@ def analyze(filename):
     
     plt.tight_layout()
     plt.show()
+analyze(inputfile)
