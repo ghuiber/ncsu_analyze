@@ -1,3 +1,7 @@
+import numpy as np
+import sys
+from matplotlib import pyplot as plt
+
 def analyze(filename, outputfile):
     data = np.loadtxt(fname=filename, delimiter=',')
     
