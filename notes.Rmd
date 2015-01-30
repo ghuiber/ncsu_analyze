@@ -1,0 +1,58 @@
+---
+title: "NCSU Software Carpentry"
+author: "Gabi Huiber"
+date: "January 29, 2015"
+output: html_document
+---
+
+## Day 1
+
+`unzip -t yourzipfile.zip` -- tells you what's in the archive, without unzipping yet.
+`wc -l` -- counts lines, not words. `-l` is the line modifier for `wc`, word count.
+`pwd` -- where am I (print working directory).
+
+- `wc -l *.pdb` counts lines in all files with the `pdb` extension in this directory.
+- REDIRECTION:
+  - `wc -l *.pdb > lengths.txt` sends output to this text file. This is redirecting.
+  - `sort lengths.txt` shows files in the order of their lengths.
+- PIPING:
+  - `wc -l *.pdb | sort` this does the same thing on screen. This is piping.
+- COMBINING THE TWO:
+  - `wc -l *.pdb | sort --reverse > reverse_sorted_lengths.txt`
+  
+`less` -- opposite of `more`: opens a file one line at a time. See `man less`.
+- FINDING STUFF
+  - `find . -type d` -- find sub-directories
+  - `find . -name "*.txt" | wc -l` -- find .txt files, display length. oops! 3 lines in output of `find`.
+  - `wc l- $(find . -name "*.txt")` -- better: actual count of lines in each file found by `find`.
+
+## BASH scripting
+
+Moving around at the BASH shell: `set -o vi` makes bash act like vi. The default is `set -o emacs`.
+
+for file in *[AB].txt
+  do
+  echo $file
+  done
+
+You can `echo` concatenated strings. On the command line, the succession above looks like this:
+
+`for file in *[AB].txt; do echo $file stats-$file; done`
+
+To pass commands to `echo`, use backticks:
+
+for file in *[AB].txt
+  do
+  echo `wc -l $file`
+  done 
+
+And you can call bash scripts in a loop:
+
+for file in NENE*[AB].txt
+  do
+  echo $file
+  bash goostats $file stats-$file
+  done
+   
+Put it in a script: `vi run-goostats.sh`
+
